@@ -15,8 +15,8 @@ include $(DEVKITPPC)/wii_rules
 # SOURCES is a list of directories containing source code
 # INCLUDES is a list of directories containing extra header files
 #---------------------------------------------------------------------------------
-TARGET		:=	QuakeGX
-TARGETDIR   	:=  	dist/wii/apps/quake
+TARGET		:=	boot
+TARGETDIR   	:=  	dist/wii/apps/nzp
 BUILD		:=	obj
 SOURCES		:=	src/wii\
 			src/wii/gx\
