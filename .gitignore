@@ -6,3 +6,5 @@
 dist/wii/apps/quake/GPL.txt
 dist/wii/apps/quake/QuakeGX.dol
 dist/wii/apps/quake/QuakeGX.elf
+*.dat
+quakec/build/fte/csprogs.lno
