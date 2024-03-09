@@ -586,7 +586,7 @@ void SV_WriteClientdataToMessage (edict_t *ent, sizebuf_t *msg)
 //
 // send a damage message
 //
-
+/*
 	if (ent->v.dmg_take || ent->v.dmg_save)
 	{
 		other = PROG_TO_EDICT(ent->v.dmg_inflictor);
@@ -599,7 +599,7 @@ void SV_WriteClientdataToMessage (edict_t *ent, sizebuf_t *msg)
 		ent->v.dmg_take = 0;
 		ent->v.dmg_save = 0;
 	}
-
+*/
 
 //
 // send the current viewpos offset from the view entity
@@ -625,7 +625,7 @@ void SV_WriteClientdataToMessage (edict_t *ent, sizebuf_t *msg)
 
 // stuff the sigil bits into the high bits of items for sbar, or else
 // mix in items2
-
+/*
 #ifdef QUAKE2
 	items = (int)ent->v.items | ((int)ent->v.items2 << 23);
 #else
@@ -638,7 +638,7 @@ void SV_WriteClientdataToMessage (edict_t *ent, sizebuf_t *msg)
 #endif
 
 	bits |= SU_ITEMS;
-	
+	*/
 	
 	if ( (int)ent->v.flags & FL_ONGROUND)
 		bits |= SU_ONGROUND;
@@ -657,8 +657,8 @@ void SV_WriteClientdataToMessage (edict_t *ent, sizebuf_t *msg)
 	if (ent->v.weaponframe)
 		bits |= SU_WEAPONFRAME;
 
-	if (ent->v.armorvalue)
-		bits |= SU_ARMOR;
+	//if (ent->v.armorvalue)
+		//bits |= SU_ARMOR;
 
 //	if (ent->v.weapon)
 		bits |= SU_WEAPON;
@@ -683,23 +683,23 @@ void SV_WriteClientdataToMessage (edict_t *ent, sizebuf_t *msg)
 	}
 
 // [always sent]	if (bits & SU_ITEMS)
-	MSG_WriteLong (msg, items);
+	//MSG_WriteLong (msg, items);
 
 	if (bits & SU_WEAPONFRAME)
 		MSG_WriteByte (msg, ent->v.weaponframe);
-	if (bits & SU_ARMOR)
-		MSG_WriteByte (msg, ent->v.armorvalue);
+	//if (bits & SU_ARMOR)
+		//MSG_WriteByte (msg, ent->v.armorvalue);
 	if (bits & SU_WEAPON)
 		MSG_WriteByte (msg, SV_ModelIndex(pr_strings+ent->v.weaponmodel));
 	
 	MSG_WriteShort (msg, ent->v.health);
 	MSG_WriteByte (msg, ent->v.currentammo);
-	
+	/*
 	MSG_WriteByte (msg, ent->v.ammo_shells);
 	MSG_WriteByte (msg, ent->v.ammo_nails);
 	MSG_WriteByte (msg, ent->v.ammo_rockets);
 	MSG_WriteByte (msg, ent->v.ammo_cells);
-	
+	*/
 
 	if (standard_quake)
 	{
@@ -765,7 +765,7 @@ void SV_UpdateToReliableMessages (void)
 	client_t *client;
 
 // check for changes to be sent over the reliable streams
-
+/*
 	for (i=0, host_client = svs.clients ; i<svs.maxclients ; i++, host_client++)
 	{
 		if (host_client->old_frags != host_client->edict->v.frags)
@@ -789,7 +789,7 @@ void SV_UpdateToReliableMessages (void)
 			continue;
 		SZ_Write (&client->message, sv.reliable_datagram.data, sv.reliable_datagram.cursize);
 	}
-	
+	*/
 
 	SZ_Clear (&sv.reliable_datagram);
 }

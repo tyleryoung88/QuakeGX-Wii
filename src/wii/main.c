@@ -142,7 +142,7 @@ void shutdown_system(void)
 			int handle = -1;
 			char quake_pack[64];
 			strcpy(quake_pack, QUAKE_WII_BASEDIR);
-			strcat(quake_pack,"/id1/pak0.pak");
+			strcat(quake_pack,"/nzp/pak0.pak");
 			if (Sys_FileOpenRead(quake_pack, &handle) < 0)
 			{
 				Sys_Error(
@@ -235,7 +235,7 @@ void shutdown_system(void)
 				
 				if (stat (filename, &filestat)) continue;	
 			
-				if ((filestat.st_mode & S_IFDIR) && strcmp(dir->d_name, ".") && strcmp(dir->d_name, "..") && strcasecmp(dir->d_name, "id1"))
+				if ((filestat.st_mode & S_IFDIR) && strcmp(dir->d_name, ".") && strcmp(dir->d_name, "..") && strcasecmp(dir->d_name, "nzp"))
 				{
 					if(!strcasecmp(dir->d_name, "hipnotic"))
 						missionpack_have |= 2;

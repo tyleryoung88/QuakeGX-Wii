@@ -406,6 +406,7 @@ Sbar_SortFrags
 */
 void Sbar_SortFrags (void)
 {
+	/*
 	int		i, j, k;
 
 // sort by frags
@@ -427,6 +428,7 @@ void Sbar_SortFrags (void)
 				fragsort[j] = fragsort[j+1];
 				fragsort[j+1] = k;
 			}
+			*/
 }
 
 int	Sbar_ColorForMap (int m)
@@ -449,7 +451,7 @@ void Sbar_UpdateScoreboard (void)
 
 // draw the text
 	memset (scoreboardtext, 0, sizeof(scoreboardtext));
-
+/*
 	for (i=0 ; i<scoreboardlines; i++)
 	{
 		k = fragsort[i];
@@ -461,6 +463,7 @@ void Sbar_UpdateScoreboard (void)
 		scoreboardtop[i] = Sbar_ColorForMap (top);
 		scoreboardbottom[i] = Sbar_ColorForMap (bottom);
 	}
+	*/
 }
 
 
@@ -833,8 +836,8 @@ void Sbar_DrawFrags (void)
 		Draw_Fill (xofs + x*8 + 10, y+4, 28, 3, bottom);
 
 	// draw number
-		f = s->frags;
-		sprintf (num, "%3i",f);
+		//f = s->frags;
+		//sprintf (num, "%3i",f);
 
 		Sbar_DrawCharacter ( (x+1)*8 , -24, num[0]);
 		Sbar_DrawCharacter ( (x+2)*8 , -24, num[1]);
@@ -890,8 +893,8 @@ void Sbar_DrawFace (void)
 		Draw_Fill (xofs, vid.conheight-SBAR_HEIGHT+12, 22, 9, bottom);
 
 		// draw number
-		f = s->frags;
-		sprintf (num, "%3i",f);
+		//f = s->frags;
+		//sprintf (num, "%3i",f);
 
 		if (top==8)
 		{
@@ -1261,8 +1264,8 @@ void Sbar_MiniDeathmatchOverlay (void)
 		Draw_Fill ( x, y+4, 40, 4, bottom);
 
 	// draw number
-		f = s->frags;
-		sprintf (num, "%3i",f);
+		//f = s->frags;
+		//sprintf (num, "%3i",f);
 
 		Draw_Character ( x+8 , y, num[0]);
 		Draw_Character ( x+16 , y, num[1]);
